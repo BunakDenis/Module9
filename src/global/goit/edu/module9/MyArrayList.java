@@ -33,18 +33,23 @@ public class MyArrayList<T> {
     }
 
     public void remove(int indexToRemove) {
-        Object[] newData = new Object[data.length];
 
-        for (int i = 0, k = 0; i < index; i++) {
-            if (i != indexToRemove) {
-                newData[k] = data[i];
-                k++;
+        if (indexToRemove >= 0 && indexToRemove <= index) {
+            Object[] newData = new Object[data.length];
+
+            for (int i = 0, k = 0; i < index; i++) {
+                if (i != indexToRemove) {
+                    newData[k] = data[i];
+                    k++;
+                }
             }
+
+            data = newData;
+            index--;
+            reduceSizeIfNeed(); //уменьшаем размер по необходимости
+
         }
 
-        data = newData;
-        index--;
-        reduceSizeIfNeed(); //уменьшаем размер по необходимости
     }
 
     public void clear() {
@@ -58,7 +63,7 @@ public class MyArrayList<T> {
         return index;
     }
 
-    T elementData (int index) {
+    T elementData(int index) {
         return (T) data[index];
     }
 

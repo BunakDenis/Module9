@@ -8,9 +8,10 @@ public class MyLinkedListTest {
             myLinkedList.add(i);
         }
         System.out.println("myLinkedList = " + myLinkedList);
+        System.out.println("myLinkedList.getSize() = " + myLinkedList.size());
 
         System.out.println("myLinkedList.get(5) = " + myLinkedList.get(5));
-        myLinkedList.remove(1);
+        myLinkedList.remove(-1);
 
         System.out.println("myLinkedList.getSize() = " + myLinkedList.size());
 

@@ -91,18 +91,20 @@ public class MyLinkedList <E> {
     }
 
 
-    public void remove(int index) {
-        int count = 0;
-        for (MyNode<E> x = first; x != null; x = x.next) {
-            count++;
-            if (count == index) {
-                unlink(x);
-                x.next = null;
-                x.item = null;
-                x.prev = null;
+    public void remove(int indexToRemove) {
+        if (indexToRemove > 0 && indexToRemove <= size) {
+            int count = 0;
+            for (MyNode<E> x = first; x != null; x = x.next) {
+                count++;
+                if (count == indexToRemove) {
+                    unlink(x);
+                    x.next = null;
+                    x.item = null;
+                    x.prev = null;
+                }
             }
+            size--;
         }
-        size--;
     }
 
     private void unlink(MyNode<E> x) {
